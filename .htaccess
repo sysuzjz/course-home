@@ -1,4 +1,4 @@
-ErrorDocument 404 /IBM-BigData-course-mainpage/404.html
+ErrorDocument 404 /course-home/404.html
 
 ExpiresActive On
     ExpiresDefault "access plus 1 months"

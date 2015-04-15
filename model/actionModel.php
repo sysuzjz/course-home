@@ -2,7 +2,8 @@
     include_once("../model/model.php");
     class ActionModel {
         public static function getOverview() {
-            $result = select("overview");
+            $cond = array("id" => 1);
+            $result = select("overview", "*", $cond);
             return $result[0];
         }
         public static function updateOverview($title, $content, $time) {

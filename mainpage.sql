@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2015 年 04 月 07 日 13:31
+-- 生成日期: 2015 年 04 月 15 日 03:15
 -- 服务器版本: 5.6.12-log
 -- PHP 版本: 5.4.12
 
@@ -17,10 +17,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- 数据库: `ibm`
+-- 数据库: `mainpage`
 --
-CREATE DATABASE IF NOT EXISTS `ibm` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `ibm`;
+CREATE DATABASE IF NOT EXISTS `mainpage` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `mainpage`;
 
 -- --------------------------------------------------------
 
@@ -34,15 +34,7 @@ CREATE TABLE IF NOT EXISTS `inform` (
   `content` text NOT NULL,
   `time` varchar(10) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- 转存表中的数据 `inform`
---
-
-INSERT INTO `inform` (`id`, `title`, `content`, `time`) VALUES
-(1, '1234', '<p>0sdfaf</p>', '1427984160'),
-(2, 'sadfwaet', '<p>0sadfasdfawerqr</p>', '1427984180');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -51,18 +43,19 @@ INSERT INTO `inform` (`id`, `title`, `content`, `time`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `overview` (
-  `id` int(10) NOT NULL DEFAULT '1',
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `content` text CHARACTER SET utf8 NOT NULL,
   `title` text CHARACTER SET utf8 NOT NULL,
-  `time` varchar(10) CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `time` varchar(10) CHARACTER SET utf8 NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- 转存表中的数据 `overview`
 --
 
 INSERT INTO `overview` (`id`, `content`, `title`, `time`) VALUES
-(1, '', 'asdf', '1427971206');
+(1, '', '', '1429096474');
 
 -- --------------------------------------------------------
 
@@ -83,6 +76,21 @@ CREATE TABLE IF NOT EXISTS `teacher` (
 
 INSERT INTO `teacher` (`id`, `uname`, `password`) VALUES
 (1, 'test', '098f6bcd4621d373cade4e832627b4f6');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `upload`
+--
+
+CREATE TABLE IF NOT EXISTS `upload` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(80) CHARACTER SET utf8 NOT NULL,
+  `path` varchar(80) CHARACTER SET utf8 NOT NULL,
+  `editor` varchar(40) CHARACTER SET utf8 NOT NULL,
+  `time` varchar(40) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
