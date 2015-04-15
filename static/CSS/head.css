@@ -1,0 +1,103 @@
+.container {
+	position: relative;
+	margin: 0px auto;
+	width: 1030px;
+}
+
+#header {
+	color: #858278;
+	height: 111px;
+	padding-top: 10px;
+	overflow: hidden;
+}
+
+#head-title {
+	display: inline-block;
+	font-size: 40px;
+}
+
+#button-login, #button-logout {
+	border: 0px;
+	background: white;
+	color: #B70E4F;
+	font-size: 15px;
+}
+
+#menu-container {
+	border-top: 1px solid #e3e1d9;
+	border-bottom: 1px solid #e3e1d9;
+}
+
+#menu {
+	list-style: outside none;
+	width: 1030px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#menu li {
+	display: block;
+	float: left;
+	/*margin: 10px 5px;*/
+	width: 80px;
+	height: 21px;
+	padding: 10px;
+	font-size: 20px;
+}
+
+#menu li:hover, .selectedItem {
+	background: #B70E4F;
+}
+
+#menu li:hover a, .selectedItem a {
+	color: white;
+}
+
+#bodybox {
+	color: #858278;
+}
+
+#login {
+	display: none;
+	position: relative;
+	background-color: #fff;
+	width: 300px;
+	margin: 0px auto;
+	padding: 40px 25px 30px 40px;
+	border: 1px solid #e3e1d9;
+	z-index: 30;
+}
+
+.inform {
+	display: inline-block;
+	width: 70px;
+	margin: 10px;
+}
+
+#autoLogin {
+	width: 35%;
+	margin: 0 auto;
+}
+
+.submit {
+	width: 190px;
+	margin: 0 auto;
+}
+
+#button-submit, #button-cancel {
+	background-color: white;
+	border: 1px solid #e3e1d9;
+	padding: 5px;
+	margin: 10px 10px;
+	width: 70px;
+}
+
+#cover {
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	opacity: 0.5;
+	background-color: black;
+	z-index: 20;
+}

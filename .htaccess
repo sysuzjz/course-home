@@ -1,0 +1,9 @@
+ErrorDocument 404 /IBM-BigData-course-mainpage/404.html
+
+ExpiresActive On
+    ExpiresDefault "access plus 1 months"
+    ExpiresByType text/html "access plus 1 months"
+    ExpiresByType text/css "access plus 1 months"
+    ExpiresByType image/* "access plus 1 months"
+    ExpiresByType application/javascript "access plus 2 months"
+ExpiresActive Off
