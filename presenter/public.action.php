@@ -2,7 +2,7 @@
     include_once("../model/public.php");
     include_once("../model/actionModel.php");
     function isAdmin() {
-        return true;
+        return isset($_SESSION["level"]) && $_SESSION["level"] == 2;
     }
 
     function isLogin() {
@@ -10,7 +10,7 @@
     }
 
     function isTeacher($id = 0) {
-        return isset($_SESSION["level"]) && $_SESSION["level"] == 1;
+        return (isset($_SESSION["level"]) && $_SESSION["level"] == 1) || isAdmin();
     }
 
     function getOverview() {
@@ -30,6 +30,15 @@
     function getResources() {
         $resources = ActionModel::getUploads();
         return $resources;
+    }
+
+    function getTeachers() {
+        if(!isAdmin()) {
+            redirectErrorPage("权限不足", 2);
+            die();
+        }
+        $teachers = ActionModel::getTeachers();
+        return $teachers;
     }
 
     function redirectErrorPage($errorMsg, $redirectTime, $redirectUrl = "./") {

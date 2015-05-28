@@ -39,6 +39,11 @@
             <li>
                 <a href="resources.php">资源</a>
             </li>
+            <?php if(isAdmin()) { ?>
+            <li>
+                <a href="management.php">用户管理</a>
+            </li>
+            <?php } ?>
         </ul>
     </div>
     <div id="bodybox">

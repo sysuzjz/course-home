@@ -24,13 +24,13 @@
     }
     function login($param) {
         $con = array("uname" => $param["uname"], "password" => md5($param["password"]));
-        $result = select("teacher", "uname", $con, "", 1);
+        $result = select("teacher", "level", $con, "", 1);
         if(!empty($result)) {
             $_SESSION["uname"] = $param["uname"];
-            $_SESSION["level"] = 1;
-            if(isset($param["autoLogin"]) && !empty($param["autoLogin"])) {
-                setcookie(session_name(), session_id(), time() + TIMEOFFSET + SESSION_LIFETIME, PATH, DOMAIN);
-            }
+            $_SESSION["level"] = $result[0]['level'];
+            // if(isset($param["autoLogin"]) && !empty($param["autoLogin"])) {
+            //     setcookie(session_name(), session_id(), time() + TIMEOFFSET + SESSION_LIFETIME, PATH, DOMAIN);
+            // }
         }
         return array("status" => !empty($result), "isRedirect" => true, "redirectTime" => 2);
     }

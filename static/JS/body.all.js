@@ -19,3 +19,38 @@ function createForm(func, id) {
     form.innerHTML = content;
     return form;
 }
+var node = null;
+if(node = document.getElementById("new-user")) {
+    node.onclick = showUpdateUserBox;
+}
+if(node = document.getElementById("update-user-cancel")) {
+    node.onclick = hideUpdateUserBox;
+}
+
+delegate(tableNode, "edit-btn", "click", function(event) {
+    event.preventDefault();
+    var currentNode = event.target;
+    showUpdateUserBox();
+    setUpdateUserBox(currentNode);
+})
+function setUpdateUserBox(node) {
+    if(node) {
+        var uname = node.getAttribute("data-uname"),
+            level = node.getAttribute("data-level"),
+            id = node.getAttribute("data-id");
+    }
+    document.getElementById("update-user-id").value = node ? id : "";
+    document.getElementById("update-user-uname").value = node ? uname : "";
+    document.getElementById("update-user-level").value = node ? level : "";
+}
+
+function showUpdateUserBox() {
+    showElementById("cover");
+    showElementById("update-user");
+
+}
+function hideUpdateUserBox() {
+    hideElementById("cover");
+    hideElementById("update-user");
+    setUpdateUserBox(null);
+}

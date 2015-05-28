@@ -47,10 +47,18 @@
             return $result;
         }
 
+        public static function getTeachers($level = "") {
+            $con = $level ? array("level" => $level) : "";
+            $result = select("teacher", "*", $con, "level DESC");
+            return $result;
+        }
+
         public static function deleteById($table, $id) {
             $cond = array("id" => $id);
             $result = delete($table, $cond);
             return $result;
         }
+
+
     }
 ?>

@@ -57,13 +57,15 @@
 	color: #858278;
 }
 
-#login {
+#login, #update-user {
 	display: none;
-	position: relative;
-	background-color: #fff;
+	position: fixed;
+	top:30%;
+	left: calc(50% - 150px);
 	width: 300px;
 	margin: 0px auto;
 	padding: 40px 25px 30px 40px;
+	background-color: #fff;
 	border: 1px solid #e3e1d9;
 	z-index: 30;
 }
@@ -84,7 +86,7 @@
 	margin: 0 auto;
 }
 
-#button-submit, #button-cancel {
+#login button, #update-user button {
 	background-color: white;
 	border: 1px solid #e3e1d9;
 	padding: 5px;

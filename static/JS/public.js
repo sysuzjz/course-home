@@ -31,3 +31,14 @@ function delegate(node, childNodeClass, eventType, func) {
         }
     })
 }
+
+function closest(node, tagName) {
+    var currentNode = node;
+    while(currentNode != document) {
+        currentNode = currentNode.parent;
+        if(currentNode.tagName.toLowerCase() === tagName.toLowerCase()) {
+            return currentNode;
+        }
+    }
+    return null;
+}
