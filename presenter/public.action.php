@@ -41,6 +41,10 @@
         return $teachers;
     }
 
+    function encrypt($password) {
+        return md5($password);
+    }
+
     function redirectErrorPage($errorMsg, $redirectTime, $redirectUrl = "./") {
         setcookie("errorMsg", $errorMsg, time() + 60, "/");
         setcookie("redirectTime", $redirectTime, time() + 60, "/");

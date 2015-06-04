@@ -23,7 +23,7 @@
         redirectErrorPage("函数名错误", 5);
     }
     function login($param) {
-        $con = array("uname" => $param["uname"], "password" => md5($param["password"]));
+        $con = array("uname" => $param["uname"], "password" => encrypt($param["password"]));
         $result = select("teacher", "level", $con, "", 1);
         if(!empty($result)) {
             $_SESSION["uname"] = $param["uname"];
@@ -74,6 +74,16 @@
         return array("status" => $result, "isRedirect" => true, "redirectUrl" => "../view/resources.php", "redirectTime" => 3);
     }
 
+    function updateUser($param) {
+        if(isset($param['id']) && !empty($param['id'])) {
+            $result = ActionModel::updateUser($param['id'], $param['uname'], encrypt($param['password']), $param['level']);
+        } else {
+            $result = ActionModel::addUser($param['uname'], encrypt($param['password']), $param['level']);
+        }
+        return array("status" => $result, "isRedirect" => true, "redirectUrl" => "../view/management.php","redirectTime" => 3);
+    }
+
+
     function deleteInform($param) {
         $id = $param["id"];
         $result = ActionModel::deleteById("inform", $id);
@@ -84,6 +94,12 @@
         $id = $param["id"];
         $result = ActionModel::deleteById("upload", $id);
         return array("status" => $result, "isRedirect" => true, "redirectUrl" => "../view/resources.php","redirectTime" => 3);
+    }
+
+    function deleteUser($param) {
+        $id = $param["id"];
+        $result = ActionModel::deleteById("teacher", $id);
+        return array("status" => $result, "isRedirect" => true, "redirectUrl" => "../view/management.php","redirectTime" => 3);
     }
 
 ?>

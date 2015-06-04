@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2015 年 04 月 15 日 03:15
+-- 生成日期: 2015 年 06 月 05 日 17:01
 -- 服务器版本: 5.6.12-log
 -- PHP 版本: 5.4.12
 
@@ -67,15 +67,18 @@ CREATE TABLE IF NOT EXISTS `teacher` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `uname` varchar(40) CHARACTER SET utf8 NOT NULL,
   `password` varchar(40) CHARACTER SET utf8 NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `level` int(2) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uname` (`uname`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- 转存表中的数据 `teacher`
 --
 
-INSERT INTO `teacher` (`id`, `uname`, `password`) VALUES
-(1, 'test', '098f6bcd4621d373cade4e832627b4f6');
+INSERT INTO `teacher` (`id`, `uname`, `password`, `level`) VALUES
+(2, 'admin', '21232f297a57a5a743894a0e4a801fc3', 2),
+(5, 'test', '098f6bcd4621d373cade4e832627b4f6', 1);
 
 -- --------------------------------------------------------
 

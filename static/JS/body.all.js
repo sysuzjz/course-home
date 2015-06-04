@@ -39,9 +39,11 @@ function setUpdateUserBox(node) {
             level = node.getAttribute("data-level"),
             id = node.getAttribute("data-id");
     }
-    document.getElementById("update-user-id").value = node ? id : "";
-    document.getElementById("update-user-uname").value = node ? uname : "";
-    document.getElementById("update-user-level").value = node ? level : "";
+    var form = document.getElementById("update-user").getElementsByTagName("form")[0];
+    form['id'].value = node ? id : "";
+    form['uname'].value = node ? uname : "";
+    form['password'].value = "";
+    form['level'].value = node ? level : "";
 }
 
 function showUpdateUserBox() {
@@ -50,7 +52,7 @@ function showUpdateUserBox() {
 
 }
 function hideUpdateUserBox() {
+    setUpdateUserBox(null);
     hideElementById("cover");
     hideElementById("update-user");
-    setUpdateUserBox(null);
 }

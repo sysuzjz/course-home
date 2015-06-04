@@ -9,7 +9,7 @@
     <div class="subhead clear-float">
         <a href="#" id="new-user" class="float-left">新建用户</a>
     </div>
-    <table id="table-container" data-func="deleteTeacher">
+    <table id="table-container" data-func="deleteUser">
         <thead>
             <tr>
                 <th>管理</th>
@@ -18,7 +18,9 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($teachers as $teacher) { ?>
+            <?php foreach ($teachers as $teacher) {
+                if($teacher['uname'] != $_SESSION['uname']) {
+            ?>
                 <tr>
                     <td class="align-center">
                         <a href="#" class="edit-btn" data-id="<?=$teacher['id']?>" data-uname="<?=$teacher['uname']?>" data-level="<?=$teacher['level']?>">编辑</a>
@@ -27,16 +29,16 @@
                     <td><?= $teacher["uname"] ?></td>
                     <td class="align-center"><?= $teacher["level"] ?></td>
                 </tr>
-            <?php } ?>
+            <?php }} ?>
         </tbody>
     </table>
     <div id="update-user">
         <form action="../presenter/admin.action.php" method="post">
             <input type="hidden" name="func" value="updateUser" />
-            <input type="hidden" id="update-user-id" name="id" value="" />
+            <input type="hidden" name="id" value="" />
             <div>
                 <label class="inform">用户名：</label>
-                <input type="text" id="update-user-uname" name="uname" placeholder="用户名" required="required" />
+                <input type="text" name="uname" placeholder="用户名" required="required" />
             </div>
             <div>
                 <label class="inform">密码：</label>
@@ -44,7 +46,7 @@
             </div>
             <div>
                 <label class="inform">权限：</label>
-                <input type="text" id="update-user-level" name="level" placeholder="权限" required="required" />
+                <input type="number" name="level" placeholder="权限" min="1" max="2" step="1" required="required" />
             </div>
             <div class="submit">
                 <input type="submit" value="提交" />

@@ -54,8 +54,20 @@
         }
 
         public static function deleteById($table, $id) {
-            $cond = array("id" => $id);
-            $result = delete($table, $cond);
+            $con = array("id" => $id);
+            $result = delete($table, $con);
+            return $result;
+        }
+
+        public static function updateUser($id, $uname, $password, $level) {
+            $con = array("id" => $id);
+            $data = array("uname" => $uname, "password" => $password, "level" => $level);
+            $result = update("teacher", $data, $con);
+            return $result;
+        }
+        public static function addUser($uname, $password, $level) {
+            $data = array("uname" => $uname, "password" => $password, "level" => $level);
+            $result = insert("teacher", $data);
             return $result;
         }
 
