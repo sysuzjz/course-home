@@ -19,6 +19,6 @@
 4. 默认管理员账户：admin  密码：admin  
 5. 在IE9+或其他高级浏览器中访问项目根目录的index.php文件即可访问网站      
 6. 项目目录结构  
-![目录结构](http://h.picphotos.baidu.com/album/whcrop%3D572%2C259%3Bq%3D90%3Bg%3D0/sign=105b36cf9b2f07085f507c42865485ac/6d81800a19d8bc3e26b8224a878ba61ea9d345f9.jpg)
+<img src="http://h.picphotos.baidu.com/album/whcrop%3D572%2C259%3Bq%3D90%3Bg%3D0/sign=105b36cf9b2f07085f507c42865485ac/6d81800a19d8bc3e26b8224a878ba61ea9d345f9.jpg" alt="项目目录结构" />
 
 
